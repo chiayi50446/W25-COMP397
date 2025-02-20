@@ -4,7 +4,7 @@ using UnityEngine.AI;
 namespace Platformer397
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Subject
     {
         [SerializeField] private InputReader input;
         [SerializeField] private Rigidbody rb;
@@ -26,6 +26,7 @@ namespace Platformer397
         private void Start()
         {
             input.EnablePlayerActions();
+            NotifyObserver();
         }
 
         private void OnEnable()
